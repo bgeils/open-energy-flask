@@ -6,12 +6,12 @@ ec2-35-167-132-139.us-west-2.compute.amazonaws.com:27017/production")
 
 db = client.production
 
-def insert_prod_data(device_id, start_time, duration, energy):
+def insert_prod_data(device_id, start_time, duration, power):
     '''
     :param device_id: unique id of the device
     :param start_time: start time for the device
     :param duration: time in seconds
-    :param energy: amount of energy during the duration in watt-hours
+    :param power: amount of power during the duration in watt-hours
     :return: true or false
     '''
 
@@ -19,15 +19,15 @@ def insert_prod_data(device_id, start_time, duration, energy):
         "device_id": device_id,
         "start_time": start_time,
         "duration": duration,
-        "energy": energy
+        "power": power
          })
 
-def insert_consum_data(device_id, start_time, duration, energy):
+def insert_consum_data(device_id, start_time, duration, power):
     '''
     :param device_id: unique id of the device
     :param start_time: start time for the device
     :param duration: time in seconds
-    :param energy: amount of energy during the duration in watt-hours
+    :param power: amount of power during the duration in watt-hours
     :return: true or false
     '''
 
@@ -39,7 +39,7 @@ def insert_consum_data(device_id, start_time, duration, energy):
         "device_id": device_id,
         "start_time": start_time,
         "duration": duration,
-        "energy": energy
+        "power": power
          })
 
 if __name__ == "__main__":

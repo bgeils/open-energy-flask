@@ -17,7 +17,7 @@ def prod():
     ret = insert_prod_data(device_id=data['device_id'],
                          start_time=data['start_time'],
                          duration=data['duration'],
-                         energy=data['energy'])
+                         power=data['power'])
     if ret.acknowledged:
         return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
     else:
@@ -30,7 +30,7 @@ def consum():
     ret = insert_consum_data(device_id=data['device_id'],
                          start_time=data['start_time'],
                          duration=data['duration'],
-                         energy=data['energy'])
+                         power=data['power'])
     if ret.acknowledged:
         return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
     else:
