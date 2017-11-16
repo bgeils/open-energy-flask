@@ -42,5 +42,9 @@ def insert_consum_data(device_id, start_time, duration, power):
         "power": power
          })
 
+def insert_petition(name, email, zipcode):
+    return db.petition.insert_one({'name': name, 'email': email, 'zipcode': zipcode})
+
+
 if __name__ == "__main__":
     pass

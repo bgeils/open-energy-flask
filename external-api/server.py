@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, request
+from flask import Flask, request, current_app
 
 app = Flask(__name__)
 
@@ -35,6 +35,14 @@ def consum():
         return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
     else:
         return "Please check your request", 400
+
+@app.route("/petition", methods=['POST'])
+def pet():
+    name = request.form['name']
+    email = request.form['email']
+    zipcode = request.form['zipcode']
+    insert_petition(name, email, zipcode)
+    return current_app.send_static_file('submit.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
