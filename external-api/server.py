@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, request, current_app
+from flask import Flask, request, redirect
 
 app = Flask(__name__)
 
@@ -42,7 +42,7 @@ def pet():
     email = request.form['email']
     zipcode = request.form['zipcode']
     insert_petition(name, email, zipcode)
-    return current_app.send_static_file('submit.html')
+    return redirect("http://isuenergy.com/thanks", code=302)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
