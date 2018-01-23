@@ -1,8 +1,13 @@
 import pymongo
 import datetime
+import pkg_resources
 
-client = pymongo.MongoClient("mongodb://bubbles:ybQWqmc97zHnrBYxKZLeghrNM44h@\
-ec2-35-167-132-139.us-west-2.compute.amazonaws.com:27017/production")
+import json
+
+with open('../../settings.json', 'r') as f:
+    config = json.load(f)
+
+client = pymongo.MongoClient(config['mongo_uri'])
 
 db = client.production
 
